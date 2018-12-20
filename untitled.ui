@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>504</width>
-    <height>423</height>
+    <width>530</width>
+    <height>100</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Инструменты</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
@@ -69,14 +69,14 @@
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>170</y>
+      <x>420</x>
+      <y>10</y>
       <width>90</width>
       <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>Калькулятор</string>
+     <string>3D картинка</string>
     </property>
    </widget>
   </widget>
@@ -85,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>504</width>
+     <width>530</width>
      <height>21</height>
     </rect>
    </property>
