@@ -51,6 +51,24 @@ class Fot(QMainWindow, Foto):
         self.setupUif(self)
 
 
+class Check(QMainWindow, Check_Card):
+    def __init__(self, parent=None):
+        super(Check, self).__init__(parent)
+        self.setupUicc(self)
+
+
+class BinDec(QMainWindow,Bin_Dec):
+    def __init__(self, parent=None):
+        super(BinDec, self).__init__(parent)
+        self.setupUib(self)
+
+
+class Coin(QMainWindow, Coin_Flip):
+    def __init__(self, parent=None):
+        super(Coin, self).__init__(parent)
+        self.setupUicf(self)
+
+
 app = QApplication(sys.argv)
 ex = Osnv()
 ex.show()
