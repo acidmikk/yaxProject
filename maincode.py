@@ -11,14 +11,14 @@ class Osnv(QMainWindow, MainWindow):
         self.pushButton.clicked.connect(self.calc)
 
     def calc(self):
-        class cal(QMainWindow, Calc):
-            def __init__(self):
-                super().__init__()
-                self.setupUic(self)
+        exc = Cal
+        exc.show()
 
 
-        excal = cal()
-        excal.show()
+class Cal(QMainWindow, Calc):
+    def __init__(self):
+        super().__init__()
+        self.setupUic(self)
 
 
 app = QApplication(sys.argv)
