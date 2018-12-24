@@ -8,8 +8,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_calc(object):
-    def setupUi(self, calc):
+class Calc(object):
+    def setupUic(self, calc):
         calc.setObjectName("calc")
         calc.resize(310, 400)
         self.centralwidget = QtWidgets.QWidget(calc)
