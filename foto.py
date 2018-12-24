@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Foto(object):
-    def setupUi(self, MainWindow):
+    def setupUif(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(455, 176)
         self.centralwidget = QtWidgets.QWidget(MainWindow)

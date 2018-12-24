@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Bin_Dec(object):
-    def setupUi(self, MainWindow):
+    def setupUib(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(300, 344)
         self.centralwidget = QtWidgets.QWidget(MainWindow)

@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Check_Card(object):
-    def setupUi(self, MainWindow):
+    def setupUicc(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(305, 126)
         self.centralwidget = QtWidgets.QWidget(MainWindow)

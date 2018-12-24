@@ -9,7 +9,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Coin_Flip(object):
-    def setupUi(self, MainWindow):
+    def setupUicf(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(400, 220)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
