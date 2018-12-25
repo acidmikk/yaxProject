@@ -6,6 +6,7 @@ from foto import Foto
 from checkCard import Check_Card
 from binbit import Bin_Dec
 from coinFlip import Coin_Flip
+from PIL import Image
 
 
 class Osnv(QMainWindow, MainWindow):
@@ -113,8 +114,32 @@ class Fot(QMainWindow, Foto):
         self.setupUif(self)
         self.initUi()
 
-    #def initUi(self):
+    def initUi(self):
+        self.pushButton.clicked.connect(self.run)
 
+    def run(self):
+        a = self.lineEdit.text()
+        с = self.lineEdit_2.text()
+        orig = Image.open(a)
+        pixels = orig.load()
+        x, y = orig.size
+        red = orig.copy()
+        pixeldsr = red.load()
+        s = 10
+        for i in range(x):
+            for j in range(y):
+                if i < s:
+                    rr, g, b = pixeldsr[i, j]
+                    pixeldsr[i, j] = rr, 0, 0
+                    r, g, b = pixels[i, j]
+                    pixels[i, j] = 0, g, b
+                else:
+                    rr, g, b = pixeldsr[i, j]
+                    pixeldsr[i, j] = rr, 0, 0
+                    r1, g, b = pixeldsr[i - 10, j]
+                    r, g, b = pixels[i, j]
+                    pixels[i, j] = r1, g, b
+        orig.save(с)
 
 
 class Check(QMainWindow, Check_Card):
