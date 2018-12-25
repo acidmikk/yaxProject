@@ -8,8 +8,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Foto(object):
-    def setupUif(self, MainWindow):
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(455, 176)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -26,6 +26,9 @@ class Foto(object):
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(20, 70, 241, 16))
         self.label_2.setObjectName("label_2")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(160, 130, 131, 23))
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -39,4 +42,5 @@ class Foto(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "3D картинка"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p>Укажите путь до оригинальнйо фотографии (с именем)</p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p>Укажите куда сохранить фото (с именем)</p></body></html>"))
+        self.pushButton.setText(_translate("MainWindow", "Сделайть картинку"))
 

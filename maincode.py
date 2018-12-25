@@ -46,57 +46,75 @@ class Cal(QMainWindow, Calc):
         self.initUi()
 
     def initUi(self):
-        a = 0
-        b = 0
-        op = ''
-        lcd = a
-        if self.pushButton_4.clicked.connect() or \
-                self.pushButton_9.clicked.connect() or \
-                self.pushButton_10.clicked.connect() or \
-                self.pushButton_14.clicked.connect() or \
-                self.pushButton_18.clicked.connect() or \
-                self.pushButton_19.clicked.connect():
-            lcd = b
-            if self.pushButton_4.clicked.connect():
-                op = 'step'
-            if self.pushButton_9.clicked.connect():
-                op = '/'
-            if self.pushButton_10.clicked.connect():
-                op = 'kor'
-            if self.pushButton_14.clicked.connect():
-                op = '*'
-            if self.pushButton_18.clicked.connect():
-                op = '+'
-            if self.pushButton_19.clicked.connect():
-                op = '-'
-        if self.pushButton_20.clicked.connect():
-            if op == 'step':
-                self.lcdNumber.display(a ** b)
-            if op == '/':
-                self.lcdNumber.display(a / b)
-            if op == 'kor':
-                self.lcdNumber.display(a // (1 / b))
-            if op == '*':
-                self.lcdNumber.display(a * b)
-            if op == '+':
-                self.lcdNumber.display(a + b)
-            if op == '-':
-                self.lcdNumber.display(a - b)
-        if self.pushButton.clicked.connect():
-            lcd = lcd * 10 + 1
-        if self.pushButton_2.clicked.connect():
-            lcd = lcd * 10 + 2
-        if self.pushButton_3.clicked.connect():
-            lcd = lcd * 10 + 3
-        if self.pushButton_6.clicked.connect():
-            lcd = lcd * 10 + 4
+        self.a = 0
+        self.b = 0
+        self.op = ['']
+        self.pushButton_4.clicked.connect(self.svap_stack)
+        self.pushButton_9.clicked.connect(self.svap_stack)
+        self.pushButton_10.clicked.connect(self.svap_stack)
+        self.pushButton_14.clicked.connect(self.svap_stack)
+        self.pushButton_18.clicked.connect(self.svap_stack)
+        self.pushButton_19.clicked.connect(self.svap_stack)
+        self.pushButton_20.clicked.connect(self.svap_stack)
+        self.pushButton.clicked.connect(self.nam_lcd)
+        self.pushButton_2.clicked.connect(self.nam_lcd)
+        self.pushButton_3.clicked.connect(self.nam_lcd)
+        self.pushButton_6.clicked.connect(self.nam_lcd)
+        self.pushButton_7.clicked.connect(self.nam_lcd)
+        self.pushButton_8.clicked.connect(self.nam_lcd)
+        self.pushButton_11.clicked.connect(self.nam_lcd)
+        self.pushButton_12.clicked.connect(self.nam_lcd)
+        self.pushButton_13.clicked.connect(self.nam_lcd)
+        self.pushButton_16.clicked.connect(self.nam_lcd)
+        self.pushButton_5.clicked.connect(self.clear)
 
+    def clear(self):
+        self.b = 0
+        self.lcdNumber.display(self.b)
+
+    def nam_lcd(self):
+        c = self.sender().text()
+        self.b = self.b*10 + int(c)
+        self.lcdNumber.display(self.b)
+
+    def svap_stack(self):
+        if len(self.op) == 1:
+            self.op.append(self.sender().text())
+            self.a = self.b
+            self.b = 0
+            self.lcdNumber.display(self.a)
+        else:
+            self.op[0] = self.op[1]
+            self.op[1] = self.sender().text()
+            op = self.op[0]
+            if op == 'x^y':
+                self.a = self.a ** self.b
+                self.lcdNumber.display(self.a)
+            if op == '/':
+                self.a = self.a / self.b
+                self.lcdNumber.display(self.a)
+            if op == '√':
+                self.a = self.a ** (1 / self.b)
+                self.lcdNumber.display(self.a)
+            if op == '*':
+                self.a = self.a * self.b
+                self.lcdNumber.display(self.a)
+            if op == '+':
+                self.a = self.a + self.b
+                self.lcdNumber.display(self.a)
+            if op == '-':
+                self.a = self.a - self.b
+                self.lcdNumber.display(self.a)
 
 
 class Fot(QMainWindow, Foto):
     def __init__(self, parent=None):
         super(Fot, self).__init__(parent)
         self.setupUif(self)
+        self.initUi()
+
+    #def initUi(self):
+
 
 
 class Check(QMainWindow, Check_Card):
