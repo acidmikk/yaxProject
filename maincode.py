@@ -43,6 +43,54 @@ class Cal(QMainWindow, Calc):
     def __init__(self, parent=None):
         super(Cal, self).__init__(parent)
         self.setupUic(self)
+        self.initUi()
+
+    def initUi(self):
+        a = 0
+        b = 0
+        op = ''
+        lcd = a
+        if self.pushButton_4.clicked.connect() or \
+                self.pushButton_9.clicked.connect() or \
+                self.pushButton_10.clicked.connect() or \
+                self.pushButton_14.clicked.connect() or \
+                self.pushButton_18.clicked.connect() or \
+                self.pushButton_19.clicked.connect():
+            lcd = b
+            if self.pushButton_4.clicked.connect():
+                op = 'step'
+            if self.pushButton_9.clicked.connect():
+                op = '/'
+            if self.pushButton_10.clicked.connect():
+                op = 'kor'
+            if self.pushButton_14.clicked.connect():
+                op = '*'
+            if self.pushButton_18.clicked.connect():
+                op = '+'
+            if self.pushButton_19.clicked.connect():
+                op = '-'
+        if self.pushButton_20.clicked.connect():
+            if op == 'step':
+                self.lcdNumber.display(a ** b)
+            if op == '/':
+                self.lcdNumber.display(a / b)
+            if op == 'kor':
+                self.lcdNumber.display(a // (1 / b))
+            if op == '*':
+                self.lcdNumber.display(a * b)
+            if op == '+':
+                self.lcdNumber.display(a + b)
+            if op == '-':
+                self.lcdNumber.display(a - b)
+        if self.pushButton.clicked.connect():
+            lcd = lcd * 10 + 1
+        if self.pushButton_2.clicked.connect():
+            lcd = lcd * 10 + 2
+        if self.pushButton_3.clicked.connect():
+            lcd = lcd * 10 + 3
+        if self.pushButton_6.clicked.connect():
+            lcd = lcd * 10 + 4
+
 
 
 class Fot(QMainWindow, Foto):

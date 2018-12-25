@@ -140,7 +140,7 @@ class Calc(object):
         self.pushButton_2.setText(_translate("calc", "2"))
         self.pushButton_3.setText(_translate("calc", "3"))
         self.pushButton_4.setText(_translate("calc", "x^y"))
-        self.pushButton_5.setText(_translate("calc", "1"))
+        self.pushButton_5.setText(_translate("calc", "C"))
         self.pushButton_6.setText(_translate("calc", "4"))
         self.pushButton_7.setText(_translate("calc", "5"))
         self.pushButton_8.setText(_translate("calc", "6"))
