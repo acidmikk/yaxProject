@@ -4,9 +4,9 @@ from mainw import MainWindow
 from calc import Calc
 from foto import Foto
 from checkCard import Check_Card
-from binbit import Bin_Dec
 from coinFlip import Coin_Flip
 from PIL import Image
+from random import choice
 
 
 class Osnv(QMainWindow, MainWindow):
@@ -15,13 +15,11 @@ class Osnv(QMainWindow, MainWindow):
         self.setupUi(self)
         self.pushButton.clicked.connect(self.calc)
         self.pushButton_2.clicked.connect(self.check)
-        self.pushButton_3.clicked.connect(self.bindec)
         self.pushButton_4.clicked.connect(self.coin)
         self.pushButton_5.clicked.connect(self.foto)
         self.callcalc = Cal(self)
         self.callfoto = Fot(self)
         self.callcheck = Check(self)
-        self.callbin = BinDec(self)
         self.callcoin = Coin(self)
 
     def calc(self):
@@ -146,19 +144,44 @@ class Check(QMainWindow, Check_Card):
     def __init__(self, parent=None):
         super(Check, self).__init__(parent)
         self.setupUicc(self)
+        self.initUi()
 
+    def initUi(self):
+        self.pushButton.clicked.connect(self.check)
 
-class BinDec(QMainWindow,Bin_Dec):
-    def __init__(self, parent=None):
-        super(BinDec, self).__init__(parent)
-        self.setupUib(self)
+    def check(self):
+        card_number = self.lineEdit.text().replace(' ', '')
+
+        digits = [int(char) for char in card_number]
+        digits = digits[-1::-1]  # Reverse the array
+
+        # double alternate digits (step 1)
+        doubled = [(digit * 2) if ((i + 1) % 2 == 0) else digit \
+                   for (i, digit) in enumerate(digits)]
+        # subtract 9 which >= 10 (step 2)
+        summed = [num if num < 10 else num - 9 \
+                  for num in doubled]
+        # step 3
+        if sum(summed) % 10 == 0:
+            self.statusBar().showMessage('Okey')
+        else:
+            self.statusBar().showMessage('Bad')
 
 
 class Coin(QMainWindow, Coin_Flip):
     def __init__(self, parent=None):
         super(Coin, self).__init__(parent)
         self.setupUicf(self)
+        self.initUi()
 
+    def initUi(self):
+        self.pushButton.clicked.connect(self.flip)
+
+    def flip(self):
+        coin = ['Орёл', 'Решка']
+        self.label.setText("<html><head/><body><p align=\"center\"><span style=\" "
+                           "font-size:24pt;\">{}</span>"
+                           "</p></body></html>".format(choice(coin)))
 
 app = QApplication(sys.argv)
 ex = Osnv()

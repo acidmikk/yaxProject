@@ -32,6 +32,9 @@ class Bin_Dec(object):
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(20, 140, 60, 20))
         self.label_3.setObjectName("label_3")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(110, 270, 80, 25))
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -46,4 +49,5 @@ class Bin_Dec(object):
         self.label.setText(_translate("MainWindow", "<html><head/><body><p>Из какой системы счисления надо перевести</p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p>В какоую систму счисления</p></body></html>"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Резульат:</span></p></body></html>"))
+        self.pushButton.setText(_translate("MainWindow", "Перевести"))
 
